@@ -29,16 +29,6 @@ def ask(image_url, key, sys_prompt, user_prompt, model, user_query = ""):
 
     # print(completion.choices[0].message.content)
     return completion.choices[0].message.content
-
-    stream = client.chat.completions.create(
-        model="meta-llama/Llama-3.2-11B-Vision-Instruct", 
-        messages=messages, 
-        max_tokens=500,
-        stream=True
-    )
-
-    for chunk in stream:
-        print(chunk.choices[0].delta.content, end="")
     
 
 # image_url = "https://media.istockphoto.com/id/471457370/photo/x-ray-image-of-broken-forearm-ap-and-lateral-view.jpg?s=612x612&w=0&k=20&c=x9K8ITR-C7FI70xMoCOS2zEi1915bgdj0HYVyZbM81g="
