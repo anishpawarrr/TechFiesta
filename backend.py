@@ -24,7 +24,7 @@ def ask(image_url, key, sys_prompt, user_prompt, model, user_query = ""):
     completion = client.chat.completions.create(
         model=model, 
         messages=messages, 
-        max_tokens=5000
+        max_tokens=3500
     )
 
     # print(completion.choices[0].message.content)
