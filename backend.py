@@ -1,5 +1,5 @@
 from huggingface_hub import InferenceClient
-from env import *
+# from env import *
 client = InferenceClient(api_key=key)
 
 def ask(image_url, user_query = ""):
