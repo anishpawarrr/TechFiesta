@@ -3,6 +3,16 @@ from PIL import Image
 import requests
 from io import BytesIO
 from backend import ask
+# from env import *
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+key = os.getenv("key")
+sys_prompt = os.getenv("sys_prompt")
+user_prompt = os.getenv("user_prompt")
+model = os.getenv("model")
 
 def load_image(image_url):
     try:
@@ -31,7 +41,7 @@ if image_url:
     submit_button = st.button("Ask V-LLM")
 
     if submit_button:
-        llm_response = ask(image_url, user_input)
+        llm_response = ask(image_url, key, sys_prompt, user_prompt, model, user_input)
         st.write(llm_response)
 
     # if user_input:

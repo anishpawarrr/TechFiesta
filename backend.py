@@ -1,15 +1,15 @@
-from huggingface_hub import InferenceClient
 # from env import *
-client = InferenceClient(api_key=key)
 
-def ask(image_url, user_query = ""):
+def ask(image_url, key, sys_prompt, user_prompt, model, user_query = ""):
+    from huggingface_hub import InferenceClient
+    client = InferenceClient(api_key=key)
     messages = [{"role" : "system", "content" : [{"type":"text", "text":sys_prompt}]},
         {
             "role": "user",
             "content": [
                 {
                     "type": "text",
-                    "text": user_prompt + user_query  
+                    "text": user_prompt + user_query
                 },
                 {
                     "type": "image_url",
